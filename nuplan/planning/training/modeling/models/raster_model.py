@@ -55,6 +55,9 @@ class RasterModel(TorchModuleWrapper):
         )
 
         num_output_features = future_trajectory_sampling.num_poses * num_features_per_pose
+        # pretrained_cfg_overlay = dict(file="/home/kang/.cache/huggingface/hub/models--timm--resnet50.a1_in1k/pytorch_model.bin")
+        # pretrained_cfg_overlay = {"file": "/home/kang/.cache/huggingface/hub/models--timm--resnet50.a1_in1k/pytorch_model.bin"}
+        # self._model = timm.create_model(model_name, pretrained=pretrained, pretrained_cfg_overlay=pretrained_cfg_overlay, num_classes=0, in_chans=num_input_channels)
         self._model = timm.create_model(model_name, pretrained=pretrained, num_classes=0, in_chans=num_input_channels)
         mlp = torch.nn.Linear(in_features=self._model.num_features, out_features=num_output_features)
 
