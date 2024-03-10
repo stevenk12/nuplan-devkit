@@ -25,3 +25,17 @@ py_library(
         "//nuplan/planning/simulation/controller/motion_model:abstract_motion_model",
     ],
 )
+
+py_library(
+    name = "kinematic_model",
+    srcs = ["kinematic_model.py"],
+    deps = [
+        "//nuplan/common/actor_state:dynamic_car_state",
+        "//nuplan/common/actor_state:ego_state",
+        "//nuplan/common/actor_state:state_representation",
+        "//nuplan/common/actor_state:vehicle_parameters",
+        "//nuplan/common/geometry:compute",
+        "//nuplan/planning/simulation/controller:utils",
+        "//nuplan/planning/simulation/controller/motion_model:abstract_motion_model",
+    ],
+)
